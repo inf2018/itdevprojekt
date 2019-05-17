@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ITDevProjekt.Models.Language>
+@{
+    ViewData["Title"] = "Translation";
+}
+            <div class="header">
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo2.png" alt="" class="logo"></a>
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo-mobile.png" alt="" class="logo-mobile"></a>
+                <div class="header-buttons">
+                    <a asp-area="" asp-controller="Home" asp-action="Search" class="start-btn list-btn list-page-btn">
+                        <span>Lista tlumaczen</span>
+                        <span>Lista tlumaczen</span>
+                        <span>Lista tlumaczen</span>
+                        <span>Lista tlumaczen</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="border"></div>
+        <div class="container">
+            <div class="tlum-content">
+                <form action="#" class="tlum-form">
+                    <div class="row select-row">
+                        <div class="form-select">
+                            <select name="langFrom" id="fromS" class="select">
+                                @foreach (Language language in Model)
+                                {
+                                    <option value="@language.lang_attr">@language.lang_name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-select">
+                            <select name="langTo" id="toS" class="select">
+                                @foreach (Language language in Model)
+                                {
+                                    <option value="@language.lang_attr">@language.lang_name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row textarea-row">
+                        <textarea name="textBefore" id="textFrom" class="textarea" placeholder="Wprowadz text: "></textarea>
+                        <textarea name="textAfter" id="textTo" class="textarea"></textarea>
+                    </div>
+                    <button class="form-btn" id="translate-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Zapisz
+                    </button>
+                    <input type="hidden" id="token" value="" name="token">
+                </form>
+            </div>

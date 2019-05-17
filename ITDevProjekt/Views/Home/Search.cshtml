@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ITDevProjekt.Models.SelectData>
+@{
+    ViewData["Title"] = "Search Page";
+}
+<div class="header">
+    <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo2.png" alt="" class="logo"></a>
+    <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo-mobile.png" alt="" class="logo-mobile"></a>
+    <div class="header-buttons">
+        <a asp-area="" asp-controller="Home" asp-action="Translate" class="start-btn tlum-btn list-page-btn">
+            <span>Tlumaczenie</span>
+            <span>Tlumaczenie</span>
+            <span>Tlumaczenie</span>
+            <span>Tlumaczenie</span>
+        </a>
+    </div>
+</div>
+</div>
+<div class="border"></div>
+<div class="container">
+    <form action="#" class="list-form">
+        <div class="search">
+            <input type="text" class="searchBox" name="searchInput" id="searchInput" placeholder="Co szukasz?">
+            <button class="searchBtn" id="searchBtn" disabled="">
+                <img src="~/img/search.svg" alt="">
+            </button>
+        </div>
+        <ul class="search-items">
+
+            @*@foreach (SelectData sd in Model)
+            {
+                <a asp-area="" asp-controller="Home" asp-action="Single">
+                    <li class="search-item">
+                        <span class="item-lang">@sd.lang_source - @sd.lang_translate</span>
+                        <span class="item-text">@sd.text_after</span>
+                    </li>
+                </a>
+            }
+
+            <a href="single.php?id='.$translation[" T_id"].'" class="single-link">*@
+
+        </ul>
+        <input type="hidden" id="tokenList" value="" name="tokenList">
+    </form>
+</div>
