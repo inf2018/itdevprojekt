@@ -3,7 +3,7 @@ $('#searchInput').bind("change keyup input click", function () {
     if (this.value.length >= 2) {
         $.ajax({
             type: 'POST',
-            url: "/Home/Select_data",
+            url: "/Search/List",
             data: {
                 token: $("#tokenList").val(),
             },

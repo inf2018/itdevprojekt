@@ -51,30 +51,25 @@ function token(textarea_id, token_id) {
 	document.getElementById(token_id).value = text_row;
 }
 
-$('#translate-btn').click(function (e) {
+function Insert(){
     translate();
     token('textFrom', 'token');
-      e.preventDefault();
-    var msg = $(this).serialize();
       $.ajax({
           type: 'POST',
-          url: '/Home/Add_data',
+          url: '/Translate/Create',
           data: {
-              lang_source: $("#fromS").val(),
-              lang_translate: $("#toS").val(),
-              text_before: $("#textFrom").val(),
-              text_after: $("#textTo").val(),
-              text_token: $("#token").val(),
+              LangSource: $("#fromS").val(),
+              LangTranslate: $("#toS").val(),
+              TextBefore: $("#textFrom").val(),
+              TextAfter: $("#textTo").val(),
+              TextToken: $("#token").val(),
           },
-          success: function (data) {
-              alert(data);
-        },
-          error: function (data) {
-              alert(data);
+          success: function (response) {
+              console.log(response);
         }
       });
       return false;
-  });
+};
 
 function translate(){
 	if(document.getElementById('textFrom').value != ''){

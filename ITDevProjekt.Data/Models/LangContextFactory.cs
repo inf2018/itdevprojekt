@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ITDevProjekt.Data.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
@@ -9,22 +10,23 @@ using System.Text;
 
 namespace ITDevProjekt.Data.Models
 {
-    public class LangContextFactory : IDesignTimeDbContextFactory<LangContext> { 
+    public class LangContextFactory : IDesignTimeDbContextFactory<ProjektDbContext>
+    {
 
-        public LangContext CreateDbContext(string[] args)
+        public ProjektDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<LangContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ProjektDbContext>();
 
             IConfiguration conf = new ConfigurationBuilder()
                 .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../ITDevProjekt"))
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var optionBuilder = new DbContextOptionsBuilder<LangContext>();
+            var optionBuilder = new DbContextOptionsBuilder<ProjektDbContext>();
 
             optionsBuilder.UseMySQL(conf.GetConnectionString("DefaultConnection"));
 
-            return new LangContext(optionsBuilder.Options);
+            return new ProjektDbContext(optionsBuilder.Options);
         }
     }
 }

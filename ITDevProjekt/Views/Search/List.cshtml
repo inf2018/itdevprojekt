@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ITDevProjekt.Models.SelectData>
+﻿@using ITDevProjekt.ViewModel;
+@model IEnumerable<TranslateViewModel>
 @{
     ViewData["Title"] = "Search Page";
 }
@@ -6,7 +7,7 @@
     <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo2.png" alt="" class="logo"></a>
     <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo-mobile.png" alt="" class="logo-mobile"></a>
     <div class="header-buttons">
-        <a asp-area="" asp-controller="Home" asp-action="Translate" class="start-btn tlum-btn list-page-btn">
+        <a asp-area="" asp-controller="Translate" asp-action="" class="start-btn tlum-btn list-page-btn">
             <span>Tlumaczenie</span>
             <span>Tlumaczenie</span>
             <span>Tlumaczenie</span>
@@ -26,17 +27,17 @@
         </div>
         <ul class="search-items">
 
-            @*@foreach (SelectData sd in Model)
+            @foreach (var translateVM in Model)
             {
-                <a asp-area="" asp-controller="Home" asp-action="Single">
+                <a asp-controller="Home" asp-action="Single?id=@translateVM.Translations.Id">
                     <li class="search-item">
-                        <span class="item-lang">@sd.lang_source - @sd.lang_translate</span>
-                        <span class="item-text">@sd.text_after</span>
+                        <span class="item-lang">@translateVM.Translations.LangSource - @translateVM.Translations.LangTranslate</span>
+                        <span class="item-text">@translateVM.Translations.TextAfter</span>
                     </li>
                 </a>
             }
 
-            <a href="single.php?id='.$translation[" T_id"].'" class="single-link">*@
+            @*<a href="single.php?id='.$translation[" T_id"].'" class="single-link">*@
 
         </ul>
         <input type="hidden" id="tokenList" value="" name="tokenList">

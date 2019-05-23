@@ -11,7 +11,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using ITDevProjekt.Data.Context;
 using Microsoft.Extensions.DependencyInjection;
+using ITDevProjekt.Data.Interfaces;
+using ITDevProjekt.Data.Repositories;
+using System.Diagnostics;
 
 namespace ITDevProjekt
 {
@@ -32,10 +36,14 @@ namespace ITDevProjekt
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<ILangsRepository, LangsRepository>();
+            services.AddTransient<ITranslationsRepository, TranslationsRepository>();
             services.AddSingleton<IConfiguration>(Configuration);
 
-            var connection = Configuration["DefaultConnection"];
-            services.AddDbContext<LangContext>(options => options.UseMySQL(connection));
+            //var connection = Configuration["DefaultConnection"];
+            var connection = "SERVER=localhost;Database=test2;UID=newuser1;Password=123456789admin;";
+            services.AddDbContext<ProjektDbContext>(options => options.UseMySQL(connection)
+                .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
             //services.AddScoped<IMyDbContext, MyDbContext>();
 
             //services.Configure<Language>(Configuration.GetSection("ConnectionStrings"));

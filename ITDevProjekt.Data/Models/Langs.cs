@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ITDevProjekt.Data.Models
 {
@@ -10,5 +11,11 @@ namespace ITDevProjekt.Data.Models
         public string LangAttr { get; set; }
 
         public string LangName { get; set; }
+
+        public static implicit operator Langs(Translations v)
+        {
+            throw new NotImplementedException();
+        }
     }
+
 }
