@@ -1,5 +1,5 @@
 ﻿@using ITDevProjekt.ViewModel;
-@model IEnumerable<TranslateViewModel>
+@model TranlateWrapViewModel
 @{
     ViewData["Title"] = "Search Page";
 }
@@ -18,28 +18,24 @@
 </div>
 <div class="border"></div>
 <div class="container">
-    <form action="#" class="list-form">
+    <form asp-action="Index" method="post" class="list-form" enctype="multipart/form-data">
+        <input asp-for="Token" type="hidden" id="tokenList" value="123" name="tokenList">
         <div class="search">
-            <input type="text" class="searchBox" name="searchInput" id="searchInput" placeholder="Co szukasz?">
-            <button class="searchBtn" id="searchBtn" disabled="">
-                <img src="~/img/search.svg" alt="">
-            </button>
+            <input type="text" class="searchBox" name="searchInput" id="searchInput" placeholder="Co szukasz?" />
+            <input type="submit" class="searchBtn" id="searchBtn" />
+
         </div>
         <ul class="search-items">
-
-            @foreach (var translateVM in Model)
+            @foreach (var translateVM in Model.List)
             {
-                <a asp-controller="Home" asp-action="Single?id=@translateVM.Translations.Id">
+                <a asp-controller="Single" asp-action="?id=@translateVM.Translations.Id">
                     <li class="search-item">
                         <span class="item-lang">@translateVM.Translations.LangSource - @translateVM.Translations.LangTranslate</span>
                         <span class="item-text">@translateVM.Translations.TextAfter</span>
                     </li>
                 </a>
             }
-
-            @*<a href="single.php?id='.$translation[" T_id"].'" class="single-link">*@
-
         </ul>
-        <input type="hidden" id="tokenList" value="" name="tokenList">
+
     </form>
 </div>

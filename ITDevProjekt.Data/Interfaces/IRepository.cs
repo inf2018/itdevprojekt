@@ -12,6 +12,8 @@ namespace ITDevProjekt.Data.Interfaces
 
         T GetById(int id);
 
+        T GetByToken(string token);
+
         void Create(T entity);
 
         void Update(T entity);

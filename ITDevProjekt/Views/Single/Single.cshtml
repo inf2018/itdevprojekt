@@ -1,5 +1,6 @@
 ﻿@using ITDevProjekt.ViewModel;
 @model IEnumerable<LangsViewModel>
+@*@model IEnumerable<TranslateViewModel>*@
 @{
     ViewData["Title"] = "Translation";
 }
@@ -19,7 +20,7 @@
 <div class="border"></div>
 <div class="container">
     <div class="tlum-content">
-        <form action="Create" method="post" role="form" class="tlum-form">
+        <form action="InsertData" method="post" role="form" class="tlum-form">
             <div class="row select-row">
                 <div class="form-select">
                     <select name="langFrom" id="fromS" class="select">
@@ -39,8 +40,10 @@
                 </div>
             </div>
             <div class="row textarea-row">
-                <textarea name="textBefore" id="textFrom" class="textarea" placeholder="Wprowadz text: "></textarea>
-                <textarea name="textAfter" id="textTo" class="textarea"></textarea>
+                @*@foreach (var transVM in Model) {
+                    <textarea name="textBefore" id="textFrom" class="textarea" placeholder="Wprowadz text: ">@transVM.</textarea>
+                    <textarea name="textAfter" id="textTo" class="textarea"></textarea>
+                }*@
             </div>
             <button class="form-btn" id="translate-btn" onclick="Insert();">
                 <span></span>
@@ -49,6 +52,7 @@
                 <span></span>
                 Zapisz
             </button>
-            <input type="hidden" id="token" value="" name="Token">
+            <input type="hidden" id="token" value="" name="token">
+            <input name="__RequestVerificationToken" type="hidden" value="<token_generated_here>">
         </form>
     </div>

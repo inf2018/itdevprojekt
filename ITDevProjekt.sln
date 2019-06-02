@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITDevProjekt", "ITDevProjekt\ITDevProjekt.csproj", "{A3D6916E-A84C-46AF-BAE6-A44C0FB45FC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITDevProjekt.Data", "ITDevProjekt.Data\ITDevProjekt.Data.csproj", "{A7CE4562-EE76-48AA-B072-EA0403F11949}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITDevProjekt.Data", "ITDevProjekt.Data\ITDevProjekt.Data.csproj", "{A7CE4562-EE76-48AA-B072-EA0403F11949}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

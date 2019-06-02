@@ -51,6 +51,11 @@ namespace ITDevProjekt.Data.Repositories
             return _context.Set<T>().Find(id);
         }
 
+        public T GetByToken(string token)
+        {
+            return _context.Set<T>().Find(token);
+        }
+
         public void Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;

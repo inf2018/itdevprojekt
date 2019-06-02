@@ -9,5 +9,6 @@ namespace ITDevProjekt.ViewModel
     public class TranslateViewModel
     {
         public Translations Translations { get; set; }
+        
     }
 }

@@ -8,9 +8,6 @@ $(document).ready(function() {
     $('.select').change(function() {
     	translate();
     });
-    //$('.form-btn').click(function() {
-    	
-    //});
 });
 
 function show() {
@@ -66,6 +63,7 @@ function Insert(){
           },
           success: function (response) {
               console.log(response);
+              alert("data inserted");
         }
       });
       return false;
